@@ -11,9 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      planificacion_evaluacion.belongsTo(models.profesor_asignatura,{
-        foreignKey: "id_profesor_asig"
-      })
       planificacion_evaluacion.belongsTo(models.tipo_evaluacion,{
         foreignKey: "id_evaluacion"
       })
@@ -28,9 +25,9 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true},
     id_curso_asig: DataTypes.INTEGER,
     id_evaluacion: DataTypes.INTEGER,
-    id_profesor_asig: DataTypes.INTEGER,
     fecha: DataTypes.DATE,
     contenido: DataTypes.STRING,
+    titulo: DataTypes.STRING,
     unidad: DataTypes.INTEGER
   }, {
     sequelize,

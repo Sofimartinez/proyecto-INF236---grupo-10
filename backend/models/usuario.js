@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       usuario.belongsTo(models.tipo_usuario,{
         foreignKey: "id_tipo"
       })
-      usuario.hasMany(models.profesor_asignatura,{
+      usuario.hasMany(models.curso_asignatura,{
         foreignKey: "rut_profesor"
       })
       usuario.hasMany(models.alumno,{

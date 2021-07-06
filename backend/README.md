@@ -39,5 +39,9 @@
 <span style="color:salmon"> npm install bcrypt </span>  
 <span style="color:salmon"> npm install jsonwebtoken dotenv </span>
 
+npm install cors
+
+nom install redux-thunk
+
 
 

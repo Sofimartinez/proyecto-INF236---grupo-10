@@ -30,6 +30,15 @@ module.exports = {
         autoIncrement: true,
         type: Sequelize.INTEGER
       },
+      rut_profesor: {
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+        references:{
+          model:"usuarios",
+          key:"rut",
+          as:"rut_profesor"
+        }
+      },
 
     });
   },

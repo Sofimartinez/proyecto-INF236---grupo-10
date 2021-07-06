@@ -24,14 +24,6 @@ module.exports = {
           as:"id_evaluacion"
         }
       },
-      id_profesor_asig: {
-        type: Sequelize.INTEGER,
-        references:{
-          model:"profesor_asignaturas",
-          key:"id_profesor_asig",
-          as:"id_profesor_asig"
-        }
-      },
       fecha: {
         type: Sequelize.DATE
       },
@@ -40,6 +32,9 @@ module.exports = {
       },
       unidad: {
         type: Sequelize.INTEGER
+      },
+      titulo: {
+        type: Sequelize.STRING
       },
     });
   },

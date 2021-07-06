@@ -23,6 +23,9 @@ module.exports = (sequelize, DataTypes) => {
       curso_asignatura.hasMany(models.planificacion_evaluacion,{
         foreignKey: "id_curso_asig"
       })
+      curso_asignatura.belongsTo(models.usuario,{
+        foreignKey: "rut_profesor"
+      })
     }
   };
   curso_asignatura.init({
@@ -33,7 +36,10 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       primaryKey: true},
     descripcion: DataTypes.STRING,
-    id_curso_asig: DataTypes.INTEGER
+    id_curso_asig: DataTypes.INTEGER,
+    rut_profesor: {
+      type:DataTypes.INTEGER,
+      primaryKey: true},
   }, {
     sequelize,
     modelName: 'curso_asignatura',

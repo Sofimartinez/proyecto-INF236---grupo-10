@@ -30,11 +30,11 @@ controller.curso = async(req,res) =>{
                 });
                 res.send(cursos)
             }else{
-                return res.status(400).send("Curso ya registrado o profesor ingresado ya tiene un curso a cargo");
+                return res.send("Curso ya registrado o profesor ingresado ya tiene un curso a cargo");
             }
             res.send(cursos)
         }else{
-            return res.status(400).send("Profesor no existe");
+            return res.send("Profesor no existe");
         }
     }catch (error){
         res.status(400).send(error)

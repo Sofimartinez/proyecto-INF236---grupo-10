@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 //Importacion de modelos
 const {curso_asignatura, planificacion_evaluacion, tipo_evaluacion} = require("../models");
 //controlador
@@ -114,12 +115,13 @@ controller.mostrarProfEval = async(req,res) =>{
 //mostrar todas las evaluaciones por profesor
 controller.mostrarEval = async(req,res) =>{
     try{
-        const planif = await planificacion_evaluacion.findAll({
+        const planif = await planficacion_evaluacion.find({
+            where: {
+                '$curso.rut_profesor$': req.params.rut 
+            },
             include: [{
                 model: curso_asignatura,
-                where: {
-                    rut_profesor: req.params.rut,
-                }
+                as: 'curso'
             }]
         }) 
         res.send(planif)

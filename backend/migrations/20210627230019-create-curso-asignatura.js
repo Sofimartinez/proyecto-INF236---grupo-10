@@ -27,6 +27,7 @@ module.exports = {
       },
       id_curso_asig: {
         unique: true,
+        allowNull: false,
         autoIncrement: true,
         type: Sequelize.INTEGER
       },

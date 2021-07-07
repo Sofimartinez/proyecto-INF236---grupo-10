@@ -1,0 +1,64 @@
+Se tienen que agregar manualmente el tipo de usuario, el registro de profesor, alumno y apoderado, los cursos.
+- Para ingresar los tipos de usuarios se utiliza la ruta: (post) "http://localhost:3000/tipo" 
+{
+	"id_tipo": 1,
+	"tipo": "profesor"
+}
+{
+	"id_tipo": 2,
+	"tipo": "alumno"
+}
+{
+	"id_tipo": 3,
+	"tipo": "apoderado"
+}
+
+- Para registrar a los profesor se tiene la ruta: (POST) "http://localhost:3000/registro/profesor"
+
+{
+	"rut": 44444,
+	"nombre": "Maria Paz Gomez",
+	"contraseña": "contraseña"
+}
+
+- Los cursos se ingresan mediante la siguiente ruta: (post) "http://localhost:3000/cursos"
+
+{
+ 	"letra_grado": "4° basico B",
+        "rut_profesor": 44444
+}
+
+
+- El alumno se tiene que registrar junto con el apoderado en la siguiente ruta: (post) "http://localhost:3000/registro/alumno"
+
+{
+    	"rut_apoderado": 11111,
+	"nombre_apoderado": "nombre apoderado",
+	"contraseña_apoderado": "contraseña",
+	"rut_alumno": 22222,
+	"nombre_alumno": "nombre alumno",
+	"contraseña_alumno": "contraseña",
+    	"curso": "4° basico B"
+}
+
+- Las asignaturas se ingresan con la ruta: (post) "http://localhost:3000/asignatura"
+
+{
+	"nombre_asignatura": "nombre asignatura"
+}
+
+- Y las asignaturas que corresponden a cada curso se registran con la ruta: "http://localhost:3000/cursoasignatura"
+
+{
+	"nombre_asignatura": "nombre asignatura",
+	"curso: "4° basico B",
+	"descripcion": "descripcion del curso"
+	"rut_profesor": 44444
+}
+
+- Tipo de evaluacion con la ruta: "http://localhost:3000/tipo_evaluacion"
+
+{
+	"id": 1,
+	"tipo": "Control"
+}

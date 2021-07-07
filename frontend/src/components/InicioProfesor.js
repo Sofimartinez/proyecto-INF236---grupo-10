@@ -1,10 +1,10 @@
 import React, {useEffect} from "react";
 import {Container, ListGroup, Alert, Button, Dropdown, DropdownButton, ButtonGroup} from "react-bootstrap";
-import Asignatura from "./Asignatura";
+//import Asignatura from "./Asignatura";
 import{Link} from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
-import {AsignaturaAsync} from "../redux/reducers/asignaturaReducer";
+//import {AsignaturaAsync} from "../redux/reducers/asignaturaReducer";
 
 function InicioProfesor(props){
     const isLogged = useSelector((store) => store.authReducer.isLogged);
@@ -13,7 +13,7 @@ function InicioProfesor(props){
 
     useEffect(() => {
         if (isLogged) {
-            dispatch(AsignaturaAsync());
+            //dispatch(AsignaturaAsync());
         }
 	},[isLogged, dispatch]);
 
@@ -28,11 +28,6 @@ function InicioProfesor(props){
         <Container>
             <div>
                 <h1>Actividades Programadas</h1>
-                {asignaturas.map((asig, index) => (
-					<ListGroup key={index}>
-                        <Asignatura nombre={asig.nombre_asignatura}/>
-                    </ListGroup>
-				))}
                 
             </div>
             <div>
@@ -54,5 +49,13 @@ function InicioProfesor(props){
 		<Alert variant="danger">Necesitas estar logeado.</Alert>
 	);
 }
+
+/*
+{asignaturas.map((asig, index) => (
+					<ListGroup key={index}>
+                        <Asignatura nombre={asig.nombre_asignatura}/>
+                    </ListGroup>
+				))}
+                */
 
 export default InicioProfesor; 

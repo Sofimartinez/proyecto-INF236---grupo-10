@@ -30,7 +30,7 @@ function Login(props){
                 window.location.href="/profesor";
             }else if (data.data.tipo === 2){
                 window.location.href="/alumno";
-            }else{
+            }else if (data.data.tipo === 3){
                 window.location.href="/apoderado";
             }
         }).catch((error) =>{

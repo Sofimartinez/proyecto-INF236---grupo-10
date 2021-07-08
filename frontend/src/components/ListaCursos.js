@@ -1,39 +1,37 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
+
+import {CursosAsync, CursoAsync} from "../redux/reducers/cursoReducer";
 
 import {Alert, Button} from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
+
 import{Link} from "react-router-dom";
 
-import { useSelector, useDispatch } from "react-redux";
-import {CursosAsync} from "../redux/reducers/cursoReducer";
 
 function ListaCursos(props){
     const isLogged = useSelector((store) => store.authReducer.isLogged);
-    console.log("isLogged")
-    console.log(isLogged)
     const cursos = useSelector((store) => store.cursoReducer.cursos);
     const dispatch = useDispatch();
 
+    //renderizar los botones para ingresar a los cursos
     useEffect(() => {
         if (isLogged) {
-            console.log("2")
             dispatch(CursosAsync());
-            console.log("c")
-            console.log(cursos)
         }
-	},[]);
+	},[isLogged, dispatch]);
 
-    const handlecursos = (e) => {
-        e.preventDefault();
+
+    const handlecursos = (curso) => {
+        dispatch(CursoAsync(curso))
     }
-    console.log("1")
-    console.log(cursos)
+    
     return isLogged ? (
         <div>
             <h1>Lista de Cursos</h1>
             <div>
-                {cursos.map((curso) => (
-                    <Link to="/profesor">
-                        <Button onClick={handlecursos} variant="outline-primary">Primary</Button>
+                {cursos.map((curso, index) => (
+                    <Link  key= {index} to="/profesor/curso">
+                        <Button onClick={() => handlecursos(curso)} variant="outline-primary">{curso.letra_grado} {curso.nombre_asignatura}</Button>
                     </Link>
                 ))}
             </div>      
@@ -42,14 +40,5 @@ function ListaCursos(props){
 		<Alert variant="danger">Necesitas estar logeado.</Alert>
 	);
 }
-
-/*
- <div>
-                <DropdownButton as={ButtonGroup} title="Reunion de apoderados" id="bg-vertical-dropdown-2">
-                    <Dropdown.Item onClick={handlenotas}>Enviar notas</Dropdown.Item> 
-                    <Dropdown.Item onClick={handlemensaje}>Enviar mensaje</Dropdown.Item> 
-                </DropdownButton>
-            </div>
-*/
 
 export default ListaCursos; 

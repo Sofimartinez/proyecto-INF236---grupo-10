@@ -1,6 +1,6 @@
 import React from "react";
 
-function Curso(props){
+function Evaluaciones(props){
     return(
         <div>
             Agregar nueva evaluacion
@@ -8,4 +8,4 @@ function Curso(props){
     );
 }
 
-export default Curso; 
+export default Evaluaciones; 

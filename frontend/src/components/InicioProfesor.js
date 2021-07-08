@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
-import {Container, ListGroup, Alert, Button, Dropdown, DropdownButton, ButtonGroup} from "react-bootstrap";
-//import Asignatura from "./Asignatura";
+import {Container, Alert, Button, Dropdown, DropdownButton, ButtonGroup} from "react-bootstrap";
 import{Link} from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -8,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 function InicioProfesor(props){
     const isLogged = useSelector((store) => store.authReducer.isLogged);
-    const asignaturas = useSelector((store) => store.asignaturaReducer.asignaturas);
+    //const asignaturas = useSelector((store) => store.asignaturaReducer.asignaturas);
     const dispatch = useDispatch();
 
     useEffect(() => {

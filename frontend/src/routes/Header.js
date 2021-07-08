@@ -3,9 +3,12 @@ import {Nav, Button} from "react-bootstrap";
 import {useDispatch } from 'react-redux';
 import {logout} from '../redux/actions/authActions';
 
-import HeaderProfesor from "./HeaderProfesor";
-import HeaderAlumno from "./HeaderAlumno";
-import HeaderApoderado from "./HeaderApoderado";
+import InicioProfesor from "../components/InicioProfesor";
+import ListaCursos from "../components/ListaCursos";
+import Logout from "../components/Logout";
+import Curso from "../components/Curso";
+import Material from "../components/Material";
+import Evaluaciones from "../components/Evaluaciones";
 
 import{
     BrowserRouter as Router,
@@ -35,14 +38,39 @@ function Header(props){
                     </Nav.Item>
                 </Nav>
                 <Switch>
-                    <Route path = "/profesor" exact>
-                        <HeaderProfesor/>
+                    {/* Routes profesor */}
+                    <Route path= "/profesor" exact>
+                        <InicioProfesor/>
                     </Route>
+                    <Route path= "/profesor/curso" exact>
+                        <Curso/>
+                    </Route>
+                    <Route path= "/profesor/cursos" exact>
+                        <ListaCursos/>
+                    </Route>
+                    <Route path= "/profesor/curso/material" exact>
+                        <Material/>
+                    </Route>
+                    <Route path= "/profesor/curso/evaluaciones" exact>
+                        <Evaluaciones/>
+                    </Route>
+                    <Route path= "/logout" exact>
+                        <Logout/>
+                    </Route>
+
+                    {/* Routes Alumno */}
                     <Route path = "/alumno" exact>
-                        <HeaderAlumno/>
+                        <div>Redirigir a la pagina de inicio del usuario alumno</div>
                     </Route>
+
+                    {/* Routes Apoderado */}
                     <Route path = "/apoderado" exact>
-                        <HeaderApoderado/>
+                        <div>Redirigir a la pagina de inicio del usuario apoderado</div>
+                    </Route>
+
+                    {/* Routes Default */}
+                    <Route path="/">
+                        <div>Redirigir a la pagina de inicio del usuario</div>
                     </Route>
                 </Switch>
             </Router>

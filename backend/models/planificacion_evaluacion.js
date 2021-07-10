@@ -22,11 +22,13 @@ module.exports = (sequelize, DataTypes) => {
   planificacion_evaluacion.init({
     id_planificacion:{
       type:DataTypes.INTEGER,
-      primaryKey: true},
+      primaryKey: true,
+      autoIncrement: true
+    },
     id_curso_asig: DataTypes.INTEGER,
     id_evaluacion: DataTypes.INTEGER,
     fecha: DataTypes.DATE,
-    contenido: DataTypes.STRING,
+    contenido: DataTypes.TEXT,
     titulo: DataTypes.STRING,
     unidad: DataTypes.INTEGER
   }, {

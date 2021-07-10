@@ -29,11 +29,11 @@ function ListaCursos(props){
         <div>
             <h1>Lista de Cursos</h1>
             <div>
-                {cursos.map((curso, index) => (
+                {cursos && cursos.map((curso, index) => (
                     <Link  key= {index} to="/profesor/curso">
                         <Button onClick={() => handlecursos(curso)} variant="outline-primary">{curso.letra_grado} {curso.nombre_asignatura}</Button>
                     </Link>
-                ))}
+                ))} 
             </div>      
         </div>
     ) : (

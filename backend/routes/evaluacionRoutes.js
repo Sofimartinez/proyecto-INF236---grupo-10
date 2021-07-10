@@ -16,6 +16,9 @@ router.delete("/:id_planificacion", controller.eliminarEval)
 //mostrar todas las evaluaciones por profesor y curso (asignatura)
 router.get("/profesor/curso/:idCursoAsig", controller.mostrarProfEval)
 
+//mostrar todas los tipos de evaluacion
+router.get("/profesor/tipo", controller.mostrarTipoEval)
+
 //mostrar todas las evaluaciones por profesor
 router.get("/profesor/:rut", controller.mostrarEval)
 

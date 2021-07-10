@@ -28,7 +28,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       contenido: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       unidad: {
         type: Sequelize.INTEGER
